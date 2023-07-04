@@ -6,7 +6,7 @@ def dataset():
     st.header(":woman: PIMA INDIANS DIABETES")
 
     st.markdown("""
-    O conjunto de dados é originalmente do National Institute of Diabetes and Digestive and Kidney Diseases. Seu propósito era ser utilizado para prever diagnosticamente se um paciente tem ou não diabetes, com base em certas medidas diagnósticas. Várias restrições foram aplicadas à seleção dessas instâncias a partir de um banco de dados maior. Em particular, todas as pacientes são mulheres com pelo menos 21 anos de idade e de origem indígena Pima.
+    O conjunto de dados é originalmente do National Institute of Diabetes and Digestive and Kidney Diseases. Seu propósito era ser utilizado para prever se um paciente tem ou não diabetes, com base em certas medidas diagnósticas. Várias restrições foram aplicadas à seleção dessas instâncias a partir de um banco de dados maior. Em particular, todas as pacientes são mulheres com pelo menos 21 anos de idade e de origem indígena Pima.
     """)
 
     df = pd.read_csv("data/diabetes.csv")
