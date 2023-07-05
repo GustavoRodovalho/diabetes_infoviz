@@ -10,7 +10,7 @@ def dataset():
     O conjunto de dados é originalmente do National Institute of Diabetes and Digestive and Kidney Diseases. Seu propósito era ser utilizado para prever se um paciente tem ou não diabetes, com base em certas medidas diagnósticas. Várias restrições foram aplicadas à seleção dessas instâncias a partir de um banco de dados maior. Em particular, todas as pacientes são mulheres com pelo menos 21 anos de idade e de origem indígena Pima.
     """)
 
-    df = load("data/diabetes.csv")
+    df = pd.read_csv("data/diabetes.csv")
 
     st.dataframe(
         df,
@@ -105,6 +105,10 @@ def dataset():
     st.markdown("""
     Durante a análise exploratória dos dados, observou-se que haviam registros com valor nulo nos atributos Glucose, BloodPressure, SkinThickness, Insulin e BMI. É sabido que para os dados analisados neste artigo valores iguais a zero, em módulo, representam uma inconsistência. Logo, como pré-processamento, realizou-se a substituição destes valores pela média de seu atributo correspondente.
     """)
+
+    # Rápido pré-processamento
+    
+    df = load("data/diabetes.csv")
 
     # Mapa de calor da matriz de correlação
 
