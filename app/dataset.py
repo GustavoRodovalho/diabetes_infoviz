@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 from utils.preprocess import load
 
 def dataset():
@@ -110,6 +111,32 @@ def dataset():
     
     df = load("data/diabetes.csv")
 
+    # Histogramas
+
+    grid = make_subplots(rows=3, cols=3, subplot_titles=df.columns)
+
+    for i, feature in enumerate(df.columns):
+        row = i // 3 + 1
+        col = i % 3 + 1
+
+        hist_trace = go.Histogram(x=df[feature], nbinsx=10)
+        grid.add_trace(hist_trace, row=row, col=col)
+
+    grid.update_layout(
+        title={
+            'text': "Histogramas",
+            'x': 0.5,
+            'y': 0.9,
+            'xanchor': 'center',
+            'yanchor': 'top'},
+        showlegend=False
+    )
+
+    grid.update_xaxes(title_text="Intervalo de valores", row=3, col=2)
+    grid.update_yaxes(title_text="Contagem", row=2, col=1)
+
+    st.plotly_chart(grid, use_container_width=True)
+
     # Mapa de calor da matriz de correlação
 
     corr_matrix = df.corr()
@@ -121,11 +148,11 @@ def dataset():
         colorscale="Reds",
     )
 
-    fig = go.Figure(data=[heatmap])
+    heatmap_fig = go.Figure(data=[heatmap])
 
-    fig.update_layout(
+    heatmap_fig.update_layout(
         title={
-            'text': "Mapa de Calor de Correlação do Pima Indian Diabetes Dataset",
+            'text': "Mapa de Calor da Matriz de Correlação",
             'x': 0.5,
             'y': 0.9,
             'xanchor': 'center',
@@ -133,4 +160,4 @@ def dataset():
         }
     )
 
-    st.plotly_chart(fig)
+    st.plotly_chart(heatmap_fig)
