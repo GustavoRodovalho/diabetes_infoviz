@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
+from utils.preprocess import load
 
 def dataset():
     st.header(":woman: PIMA INDIANS DIABETES")
@@ -9,7 +10,7 @@ def dataset():
     O conjunto de dados é originalmente do National Institute of Diabetes and Digestive and Kidney Diseases. Seu propósito era ser utilizado para prever se um paciente tem ou não diabetes, com base em certas medidas diagnósticas. Várias restrições foram aplicadas à seleção dessas instâncias a partir de um banco de dados maior. Em particular, todas as pacientes são mulheres com pelo menos 21 anos de idade e de origem indígena Pima.
     """)
 
-    df = pd.read_csv("data/diabetes.csv")
+    df = load("data/diabetes.csv")
 
     st.dataframe(
         df,
@@ -87,7 +88,7 @@ def dataset():
 
     st.markdown("""
     - Pregnancies: número de gravidezes (numérica)
-    - Glucose: concentração de glicose plasmática em 2 horas em um teste oral de tolerância à glicose (numérica)
+    - Glucose: concentração de glicose plasmática em 2 horas em um teste oral de tolerância à glicose (mg/dL) (numérica)
     - BloodPressure: pressão sanguínea (numérica)
     - SkinThickness: espessura da pele (numérica)
     - Insulin: insulina sérica de 2 horas (mu U/ml); níveis de insulina no soro 2 horas após a administração de glicose (numérica)
@@ -100,6 +101,12 @@ def dataset():
     st.divider()
 
     st.header(":mag_right: ANÁLISE EXPLORATÓRIA DOS DADOS")
+
+    st.markdown("""
+    No entanto, observou-se que havia registros com valor nulo nos atributos Glucose, BloodPressure, SkinThickness, Insulin e BMI. É sabido que para os dados analisados neste artigo valores iguais a zero, em módulo, representam uma inconsistência. Logo, para tratamento disso, realizou-se a substituição destes valores pela média de seu atributo correspondente.
+    """)
+
+    # Mapa de calor da matriz de correlação
 
     corr_matrix = df.corr()
 
@@ -123,4 +130,3 @@ def dataset():
     )
 
     st.plotly_chart(fig)
-
