@@ -87,9 +87,6 @@ def visualization():
                     title='',
                     category_orders={'Outcome': [0, 1]})
 
-    df['AgeInterval'] = pd.cut(df['Age'], bins=10)
-    xaxis_ticklabels = [f"{interval.left}-{interval.right}" for interval in df['AgeInterval'].cat.categories]
-
     fig.update_layout(
         barmode='group',
         title={
@@ -98,11 +95,6 @@ def visualization():
             'y': 0.9,
             'xanchor': 'center',
             'yanchor': 'top'
-        },
-        xaxis={
-            'tickmode': 'array',
-            'tickvals': df['AgeInterval'].cat.codes,
-            'ticktext': xaxis_ticklabels
         }
     )
 
