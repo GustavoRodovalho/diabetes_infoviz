@@ -128,23 +128,3 @@ def visualization():
     st.markdown("De acordo com o gráfico de coordenadas paralelas, o intervalo que compreende a maior parte dos pacientes diabéticos é entre 100 e 199 mg/dL.")
 
     st.divider()
-
-    # # Multidimensional scaling
-
-    # X = df.drop('Outcome', axis=1)
-    # y = df['Outcome']
-    # mds_plot = mds(df)
-
-    # mds_plot.update_layout(
-    #     title={
-    #         'text': "Multidimensional Scaling (MDS)",
-    #         'x': 0.5,
-    #         'y': 1,
-    #         'xanchor': 'center',
-    #         'yanchor': 'top'
-    #     }
-    # )
-
-    # st.plotly_chart(mds_plot)
-
-    # st.divider()

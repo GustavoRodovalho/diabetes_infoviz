@@ -103,7 +103,7 @@ def dataset():
     st.header(":mag_right: ANÁLISE EXPLORATÓRIA DOS DADOS")
 
     st.markdown("""
-    No entanto, observou-se que havia registros com valor nulo nos atributos Glucose, BloodPressure, SkinThickness, Insulin e BMI. É sabido que para os dados analisados neste artigo valores iguais a zero, em módulo, representam uma inconsistência. Logo, para tratamento disso, realizou-se a substituição destes valores pela média de seu atributo correspondente.
+    Durante a análise exploratória dos dados, observou-se que havia registros com valor nulo nos atributos Glucose, BloodPressure, SkinThickness, Insulin e BMI. É sabido que para os dados analisados neste artigo valores iguais a zero, em módulo, representam uma inconsistência. Logo, para tratamento disso, realizou-se a substituição destes valores pela média de seu atributo correspondente.
     """)
 
     # Mapa de calor da matriz de correlação
