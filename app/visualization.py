@@ -126,5 +126,3 @@ def visualization():
     st.plotly_chart(parallel_coords)
 
     st.markdown("De acordo com o gráfico de coordenadas paralelas, o intervalo que compreende a maior parte dos pacientes diabéticos é entre 100 e 199 mg/dL.")
-
-    st.divider()
