@@ -129,7 +129,7 @@ def plotRadviz3D(df, df_sphere, legend_title, two_cat=False):
     color_sequence = px.colors.qualitative.Light24[:num_colors]
 
     if two_cat == True:
-        color_sequence = ['green', 'red', 'blue']
+        color_sequence = ['gray', 'red', 'blue']
 
     df.rename(columns={'index': legend_title}, inplace=True)
     fig = px.scatter_3d(
