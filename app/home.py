@@ -24,7 +24,7 @@ def home():
     
     **3. É sabido que com a idade o corpo vai perdendo a capacidade de produzir insulina ou diminuir a sensibilidade em relação a ela. Com isso, é possível afirmar que a maioria dos pacientes portadores da doença possuem idade (Age) acima dos 40 anos?**
     
-    **4. De acordo com a Associação Brasileira para o Estudo da Obesidade e Síndrome Metabólica (ABESO), [os indíviduos são considerados diabéticos quando apresentarem glicemia acima de 126 mg/dL](https://abeso.org.br/qual-o-valor-normal-da-glicemia-saiba-o-que-e-e-como-medir-corretamente/). Qual intervalo de nível de glicose (Glucose) acomete os pacientes com e sem diabetes?**
+    **4. De acordo com a Associação Brasileira para o Estudo da Obesidade e Síndrome Metabólica (ABESO), [os indíviduos são considerados diabéticos quando apresentarem glicemia acima de 126 mg/dL](https://abeso.org.br/qual-o-valor-normal-da-glicemia-saiba-o-que-e-e-como-medir-corretamente/). A partir da base de dados, qual intervalo de nível de glicose (Glucose) acomete os pacientes com e sem diabetes?**
     """)
 
     st.divider()
