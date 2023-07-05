@@ -106,7 +106,7 @@ def visualization():
 
     # Hipótese 4
 
-    st.markdown("**4. De acordo com a Associação Brasileira para o Estudo da Obesidade e Síndrome Metabólica (ABESO), [os indíviduos são considerados diabéticos quando apresentarem glicemia acima de 126 mg/dL](https://abeso.org.br/qual-o-valor-normal-da-glicemia-saiba-o-que-e-e-como-medir-corretamente/). De acordo com a base de dados, qual intervalo de nível de glicose (Glucose) acomete os pacientes com diabetes?**")
+    st.markdown("**4. De acordo com a Associação Brasileira para o Estudo da Obesidade e Síndrome Metabólica (ABESO), [os indíviduos são considerados diabéticos quando apresentarem glicemia acima de 126 mg/dL](https://abeso.org.br/qual-o-valor-normal-da-glicemia-saiba-o-que-e-e-como-medir-corretamente/). A partir da base de dados, qual intervalo de nível de glicose (Glucose) acomete os pacientes com diabetes?**")
 
     # Parallel coordinates
 
