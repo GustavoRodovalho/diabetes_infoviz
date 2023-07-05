@@ -82,13 +82,41 @@ def visualization():
 
     st.markdown("**3. É sabido que com a idade o corpo vai perdendo a capacidade de produzir insulina e diminuindo a sensibilidade em relação a ela. Dado isso, é possível afirmar que a maioria dos pacientes portadores da doença possuem idade (Age) acima dos 40 anos?**")
 
-    fig = px.histogram(df, x='Age', color='Outcome', nbins=10,
-                    labels={'Age': 'Age', 'Outcome': 'Outcome'},
-                    title='Gráficos de Barras',
-                    category_orders={'Outcome': [0, 1]})
+    # fig = px.histogram(df, x='Age', color='Outcome', nbins=10,
+    #                 labels={'Age': 'Age', 'Outcome': 'Outcome'},
+    #                 title='',
+    #                 category_orders={'Outcome': [0, 1]})
 
-    fig.update_layout(barmode='group')
+    # fig.update_layout(
+    #     barmode='group',
+    #     title={
+    #         'text': "Gráficos de Barras",
+    #         'x': 0.5,
+    #         'y': 0.9,
+    #         'xanchor': 'center',
+    #         'yanchor': 'top'
+    #     }
+    # )
     
+    df['AgeInterval'] = pd.cut(df['Age'], bins=10)
+
+    fig = px.histogram(df, x='AgeInterval', color='Outcome', nbins=10,
+                        labels={'AgeInterval': 'Age', 'Outcome': 'Outcome'},
+                        title='',
+                        category_orders={'Outcome': [0, 1]},
+                        histnorm='percent')
+
+    fig.update_layout(
+        barmode='group',
+        title={
+            'text': "Gráficos de Barras",
+            'x': 0.5,
+            'y': 0.9,
+            'xanchor': 'center',
+            'yanchor': 'top'
+        }
+    )
+
     st.plotly_chart(fig)
 
     st.markdown("De acordo com o gráfico de barras, a maior frequência de pacientes diabéticos é entre a segunda e terceira década de vida.")
