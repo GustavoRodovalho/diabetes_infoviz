@@ -101,9 +101,7 @@ def visualization():
             'xanchor': 'center',
             'yanchor': 'top'
         },
-        xaxis={
-            'tickformat': format_age_interval  # Set the custom tick format function
-        }
+        xaxis_tickformat=format_age_interval
     )
 
     st.plotly_chart(fig)
