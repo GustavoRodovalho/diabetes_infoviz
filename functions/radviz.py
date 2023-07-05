@@ -97,7 +97,7 @@ def Radviz2DMapping(S, X):
     
     return S_hat.fillna(0)
 
-def plotRadviz3D(df, df_sphere, legend_title):
+def plotRadviz3D(df, df_sphere, legend_title, two_cat=False):
     '''
     Args:
         df: data + anchors points (m+n x 5)
@@ -128,6 +128,9 @@ def plotRadviz3D(df, df_sphere, legend_title):
     num_colors = len(df["index"].unique())
     color_sequence = px.colors.qualitative.Light24[:num_colors]
 
+    if two_cat == True:
+        color_sequence = ['green', 'red', 'blue']
+
     df.rename(columns={'index': legend_title}, inplace=True)
     fig = px.scatter_3d(
         df,
@@ -146,7 +149,7 @@ def plotRadviz3D(df, df_sphere, legend_title):
 
     return fig
 
-def RadViz3D(y, X, BPs, legend_title="Outcome", anchors_name="Anchor\'s Names"):
+def RadViz3D(y, X, BPs, legend_title="Outcome", anchors_name="Anchor\'s Names", two_cat=False):
     '''
     Args:
         y: column with labels (m,)
@@ -170,6 +173,6 @@ def RadViz3D(y, X, BPs, legend_title="Outcome", anchors_name="Anchor\'s Names"):
     # Gets the data + anchors points (= df) and the BPs in the sphere (= df_sphere)
     df, df_sphere = Dataframe3DPreparation(S_hat, X, d, BPs, y, anchors_name)
 
-    fig = plotRadviz3D(df, df_sphere, legend_title)
+    fig = plotRadviz3D(df, df_sphere, legend_title, two_cat)
 
     return fig

@@ -74,7 +74,7 @@ def visualization():
     X = df.drop(["Outcome"], axis=1)
     BPs = 10000
 
-    radviz = RadViz3D(y, X, BPs, legend_title="Outcome", anchors_name="")
+    radviz = RadViz3D(y, X, BPs, legend_title="Outcome", anchors_name="", two_cat=True)
     
     radviz.update_layout(
         title={
