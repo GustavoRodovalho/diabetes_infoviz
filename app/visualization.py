@@ -5,7 +5,7 @@ from functions.pca import pca_vis
 import plotly.graph_objects as go
 import plotly.io as pio
 import plotly.express as px
-import seaborn as sns
+import plotly.figure_factory as ff
 from utils.preprocess import load
 
 def visualization():
@@ -23,8 +23,42 @@ def visualization():
 
     st.markdown("**1. A obesidade pode aumentar a resistência à insulina e afetar o funcionamento adequado do metabolismo da glicose, predispondo as pessoas ao desenvolvimento de diabetes. Dessa forma, há maior prevalência de diabetes em indivíduos com maior Índice de Massa Corporal (BMI)?**")
 
-    fig = sns.pairplot(df, hue="Outcome")
-    st.pyplot(fig)
+    # Matriz de gráficos de dispersão
+
+    textd = ['não diabético' if cl==0 else 'diabético' for cl in df['Outcome']]
+
+    scat_matrix = go.Figure(
+        data=go.Splom(
+            dimensions=[dict(label='Pregnancies', values=df['Pregnancies']),
+                dict(label='Glucose', values=df['Glucose']),
+                dict(label='BloodPress', values=df['BloodPressure']),
+                dict(label='SkinThick', values=df['SkinThickness']),
+                dict(label='Insulin', values=df['Insulin']),
+                dict(label='BMI', values=df['BMI']),
+                dict(label='PedigreeFunction', values=df['DiabetesPedigreeFunction']),
+                dict(label='Age', values=df['Age'])],
+            marker=dict(
+                color=df['Outcome'],
+                size=3,
+                colorscale='Bluered',
+                line=dict(width=0.5, color='rgb(230,230,230)')),
+            text=textd,
+            diagonal=dict(visible=False)))
+
+    scat_matrix.update_layout(
+        title={
+            'text': "Matriz de Gráficos de Dispersão",
+            'x': 0.5,
+            'y': 0.9,
+            'xanchor': 'center',
+            'yanchor': 'top'
+        },
+        dragmode='select',
+        width=1000,
+        height=1000,
+        hovermode='closest')
+
+    st.plotly_chart(scat_matrix, use_container_width=True)
 
     st.markdown("Considerando a relação do BMI com o Outcome observada nos múltiplos gráficos de dispersão, pode-se afirmar que a maioria dos pacientes diabéticos apresentam níveis de BMI acima de 25, representando sobrepeso ou obesidade.")
 
@@ -64,9 +98,9 @@ def visualization():
 
     pca_2pc.update_layout(
         title={
-            'text': "PCA Scatterplot",
+            'text': "Gráfico de Dispersão PCA",
             'x': 0.5,
-            'y': 0.9,
+            'y': 1,
             'xanchor': 'center',
             'yanchor': 'top'
         }
@@ -82,15 +116,18 @@ def visualization():
 
     st.markdown("**3. É sabido que com a idade o corpo vai perdendo a capacidade de produzir insulina e diminuindo a sensibilidade em relação a ela. Dado isso, é possível afirmar que a maioria dos pacientes portadores da doença possuem idade (Age) acima dos 40 anos?**")
 
+    # Gráfico de frequências
+
     fig = px.histogram(df, x='Age', color='Outcome', nbins=10,
-                    labels={'Age': 'Age', 'Outcome': 'Outcome'},
+                    labels={'Age': 'Age interval mean', 'Outcome': 'Outcome'},
                     title='',
-                    category_orders={'Outcome': [0, 1]})
+                    category_orders={'Outcome': [0, 1]},
+                    color_discrete_sequence=['blue', 'red'])
 
     fig.update_layout(
         barmode='group',
         title={
-            'text': "Gráficos de Barras",
+            'text': "Gráfico de Frequências",
             'x': 0.5,
             'y': 0.9,
             'xanchor': 'center',
@@ -100,7 +137,7 @@ def visualization():
 
     st.plotly_chart(fig)
 
-    st.markdown("De acordo com o gráfico de barras, a maior frequência de pacientes diabéticos é entre a segunda e terceira década de vida.")
+    st.markdown("De acordo com o gráfico de frequências, a maior frequência de pacientes diabéticos é entre a segunda e terceira década de vida.")
 
     st.divider()
 
