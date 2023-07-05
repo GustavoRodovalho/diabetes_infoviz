@@ -87,10 +87,8 @@ def visualization():
                     title='',
                     category_orders={'Outcome': [0, 1]})
 
-    def format_age_interval(interval):
-        start, end = interval.left, interval.right
-        label = f"{start}-{end}"
-        return label
+    df['AgeInterval'] = pd.cut(df['Age'], bins=10)
+    xaxis_ticklabels = [f"{interval.left}-{interval.right}" for interval in df['AgeInterval'].cat.categories]
 
     fig.update_layout(
         barmode='group',
@@ -101,7 +99,11 @@ def visualization():
             'xanchor': 'center',
             'yanchor': 'top'
         },
-        xaxis_tickformat=format_age_interval
+        xaxis={
+            'tickmode': 'array',
+            'tickvals': df['AgeInterval'].cat.codes,
+            'ticktext': xaxis_ticklabels
+        }
     )
 
     st.plotly_chart(fig)
