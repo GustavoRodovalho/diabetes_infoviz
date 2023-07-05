@@ -20,9 +20,9 @@ def home():
 
     **1. A obesidade pode aumentar a resistência à insulina e afetar o funcionamento adequado do metabolismo da glicose, predispondo as pessoas ao desenvolvimento de diabetes. Dessa forma, há maior prevalência de diabetes em indivíduos com maior Índice de Massa Corporal (BMI)?**
     
-    **2. Diabetes é uma síndrome metabólica, em que a insulina não consegue degradar as moléculas de glicose em velocidade constante, o que torna elevado os índices de açúcar no sangue. Com isso, pode-se afirmar que a glicose (Glucose) deve ser a variável mais significativa no desenvolvimento da doença?**
+    **2. A diabetes é uma síndrome metabólica, em que a insulina não consegue degradar as moléculas de glicose em velocidade constante, o que torna elevado os índices de açúcar no sangue. Com isso, pode-se afirmar que a glicose (Glucose) deve ser a variável mais significativa no desenvolvimento da doença?**
     
-    **3. É sabido que com a idade o corpo vai perdendo a capacidade de produzir insulina ou diminuir a sensibilidade em relação a ela. Com isso, é possível afirmar que a maioria dos pacientes portadores da doença possuem idade (Age) acima dos 40 anos?**
+    **3. É sabido que com a idade o corpo vai perdendo a capacidade de produzir insulina e diminuindo a sensibilidade em relação a ela. Dado isso, é possível afirmar que a maioria dos pacientes portadores da doença possuem idade (Age) acima dos 40 anos?**
     
     **4. De acordo com a Associação Brasileira para o Estudo da Obesidade e Síndrome Metabólica (ABESO), [os indíviduos são considerados diabéticos quando apresentarem glicemia acima de 126 mg/dL](https://abeso.org.br/qual-o-valor-normal-da-glicemia-saiba-o-que-e-e-como-medir-corretamente/). De acordo com a base de dados, qual intervalo de nível de glicose (Glucose) acomete os pacientes com diabetes?**
     """)

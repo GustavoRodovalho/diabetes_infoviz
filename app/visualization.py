@@ -32,7 +32,7 @@ def visualization():
 
     # Hipótese 2
 
-    st.markdown("**2. Diabetes é uma síndrome metabólica, em que a insulina não consegue degradar as moléculas de glicose em velocidade constante, o que torna elevado os índices de açúcar no sangue. Com isso, pode-se afirmar que a glicose (Glucose) deve ser a variável mais significativa no desenvolvimento da doença?**")
+    st.markdown("**2. A diabetes é uma síndrome metabólica, em que a insulina não consegue degradar as moléculas de glicose em velocidade constante, o que torna elevado os índices de açúcar no sangue. Com isso, pode-se afirmar que a glicose (Glucose) deve ser a variável mais significativa no desenvolvimento da doença?**")
 
     # RadViz
 
@@ -80,7 +80,7 @@ def visualization():
 
     # Hipótese 3
 
-    st.markdown("**3. É sabido que com a idade o corpo vai perdendo a capacidade de produzir insulina ou diminuir a sensibilidade em relação a ela. Com isso, é possível afirmar que a maioria dos pacientes portadores da doença possuem idade (Age) acima dos 40 anos?**")
+    st.markdown("**3. É sabido que com a idade o corpo vai perdendo a capacidade de produzir insulina e diminuindo a sensibilidade em relação a ela. Dado isso, é possível afirmar que a maioria dos pacientes portadores da doença possuem idade (Age) acima dos 40 anos?**")
 
     fig = px.histogram(df, x='Age', color='Outcome', nbins=10,
                     labels={'Age': 'Age', 'Outcome': 'Outcome'},
