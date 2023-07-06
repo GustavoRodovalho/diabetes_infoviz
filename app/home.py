@@ -29,4 +29,4 @@ def home():
 
     st.divider()
 
-    st.video("https://youtu.be/RjiqbTLW9_E")
+    st.video("https://youtu.be/5cAGUKi4CKk")
